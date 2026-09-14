@@ -5,7 +5,7 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 from kivy.uix.scrollview import ScrollView
 
-class Nosferatu(App):
+class NosferatuApp(App):
     def build(self):
         self.ladrao = 0
         self.policia = 0
@@ -16,25 +16,32 @@ class Nosferatu(App):
 
         layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
         
+        # Divisória ajustada para 45 caracteres para caber em telas mobile sem vazar
+        sep_init = "============================================="
+
         self.output = Label(
-            text="\n[color=#FFFFFF]============================================================[/color]\n"
+            text=f"\n[color=#FFFFFF]{sep_init}[/color]\n"
             "[color=#FFFFFF]Zerésima da Eleição 100% confiável do NOSFERATU: 0 voto(s)[/color]\n"
-            "[color=#FFFFFF]============================================================[/color]\n"
+            f"[color=#FFFFFF]{sep_init}[/color]\n"
             "[color=#FFFFFF]Digite:[/color]\n"
             "[color=#FF0000]13 - LADRÃO[/color]\n"
             "[color=#00FF00]22 - POLÍCIA[/color]\n"
             "[color=#FF69B4]24 - ISENTÃO[/color]\n"
             "[color=#FFFFFF]99 - APURAR[/color]"
-            "\n[color=#FFFFFF]============================================================[/color]\n",
-            size_hint_y=None, markup=True
+            f"\n[color=#FFFFFF]{sep_init}[/color]\n",
+            size_hint_y=None, 
+            markup=True,
+            halign='center'
         )
+        
+        # Mantém a altura dinâmica conforme o texto cresce (sem quebrar linha)
         self.output.bind(texture_size=lambda instance, value: setattr(instance, 'height', value[1]))
         
         scroll = ScrollView(size_hint=(1, 0.7))
         scroll.add_widget(self.output)
         layout.add_widget(scroll)
 
-        # Configurado para capturar o Enter
+        # Entrada de texto (ativa Enter e mantém foco)
         self.input_voto = TextInput(
             hint_text="Digite seu voto", 
             multiline=False, 
@@ -42,7 +49,6 @@ class Nosferatu(App):
             size_hint_y=None, 
             height=100
         )
-        # Dispara a função processar_voto ao apertar Enter/Concluir no teclado
         self.input_voto.bind(on_text_validate=self.processar_voto)
         layout.add_widget(self.input_voto)
 
@@ -56,11 +62,11 @@ class Nosferatu(App):
         voto = self.input_voto.text.strip()
         self.input_voto.text = ""
         
-        # Mantém o foco na caixa de texto para o teclado não fechar
+        # Mantém o teclado aberto e pronto para o próximo voto
         self.input_voto.focus = True
         
         log = ""
-        sep = "[color=#FFFFFF]============================================================[/color]"
+        sep = "[color=#FFFFFF]=============================================[/color]"
 
         if voto == "13":
             self.ladrao += 1
@@ -81,22 +87,22 @@ class Nosferatu(App):
                 self.ladrao += 1
         elif voto == "99":
             log = (
-                "\n[color=#FFFFFF]============================================================[/color]\n"
+                f"\n{sep}\n"
                 "[color=#FFFFFF]Resultado da Eleição[/color]\n"
-                "[color=#FFFFFF]============================================================[/color]\n"
+                f"{sep}\n"
                 f"[color=#FFFFFF]LADRÃO: [/color][color=#FF0000]{self.ladrao}[/color][color=#FFFFFF] voto(s)![/color]\n"
                 f"[color=#FFFFFF]POLÍCIA: [/color][color=#00FF00]{self.policia}[/color][color=#FFFFFF] voto(s)![/color]\n"
                 f"[color=#FFFFFF]ISENTÃO: [/color][color=#FF69B4]{self.isentao}[/color][color=#FFFFFF] voto(s)![/color]\n"
                 f"[color=#FFFFFF]NULOS: [/color][color=#FFFF00]{self.nulos}[/color][color=#FFFFFF] voto(s)![/color]\n"
-                "[color=#FFFFFF]============================================================[/color]\n"
+                f"{sep}\n"
                 f"[color=#FFFFFF]TOTALIZAÇÃO: {self.total} voto(s)![/color]\n"
-                "[color=#FFFFFF]============================================================[/color]\n"
+                f"{sep}\n"
                 "[color=#FFFFFF]Obrigado por acreditar CEGAMENTE em nossa Ju$tiça Eleitoral![/color]\n"
-                "[color=#FFFFFF]============================================================[/color]\n"
+                f"{sep}\n"
                 "[color=#FFFFFF]Este app é apenas uma brincadeira.[/color]\n"
                 "[color=#FFFFFF]Qualquer semelhança com a realidade é mera coincidência.[/color]\n"
                 "[color=#FFFFFF]Autor: RCDM[/color]\n"
-                "[color=#FFFFFF]============================================================[/color]\n"
+                f"{sep}\n"
             )
         else:
             self.nulos += 1
@@ -106,4 +112,4 @@ class Nosferatu(App):
         self.output.text += f"\n\n{log}"
 
 if __name__ == "__main__":
-    Nosferatu().run()
+    NosferatuApp().run()
