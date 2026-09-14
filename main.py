@@ -17,11 +17,15 @@ class NosferatuApp(App):
         layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
         
         self.output = Label(
-            text="\n============================================================\n"
-            "Zerésima da Eleição 100% confiável do NOSFERATU: 0 voto(s)\n"
-            "============================================================\n"
-            "Digite:\n13 - LADRÃO\n22 - POLÍCIA\n24 - ISENTÃO\n99 - APURAR"
-            "\n============================================================\n",
+            text="\n[color=#FFFFFF]============================================================[/color]\n"
+            "[color=#FFFFFF]Zerésima da Eleição 100% confiável do NOSFERATU: 0 voto(s)[/color]\n"
+            "[color=#FFFFFF]============================================================[/color]\n"
+            "[color=#FFFFFF]Digite:[/color]\n"
+            "[color=#FF0000]13 - LADRÃO[/color]\n"
+            "[color=#00FF00]22 - POLÍCIA[/color]\n"
+            "[color=#FF69B4]24 - ISENTÃO[/color]\n"
+            "[color=#FFFFFF]99 - APURAR[/color]"
+            "\n[color=#FFFFFF]============================================================[/color]\n",
             size_hint_y=None, markup=True
         )
         self.output.bind(texture_size=lambda instance, value: setattr(instance, 'height', value[1]))
@@ -44,7 +48,7 @@ class NosferatuApp(App):
         self.input_voto.text = ""
         log = ""
 
-        sep = "============================================================"
+        sep = "[color=#FFFFFF]============================================================[/color]"
 
         if voto == "13":
             self.ladrao += 1
@@ -65,22 +69,22 @@ class NosferatuApp(App):
                 self.ladrao += 1
         elif voto == "99":
             log = (
-                "\n============================================================\n"
-                "[color=#00FF00]Resultado da Eleição[/color]\n"
-                "============================================================\n"
-                f"LADRÃO: [color=#FF0000]{self.ladrao}[/color] voto(s)!\n"
-                f"POLÍCIA: [color=#00FF00]{self.policia}[/color] voto(s)!\n"
-                f"ISENTÃO: [color=#FF69B4]{self.isentao}[/color] voto(s)!\n"
-                f"NULOS: [color=#FFFF00]{self.nulos}[/color] voto(s)!\n"
-                "============================================================\n"
-                f"TOTALIZAÇÃO: {self.total} voto(s)!\n"
-                "============================================================\n"
-                "[color=#00FF00]Obrigado por acreditar CEGAMENTE em nossa Ju$tiça Eleitoral![/color]\n"
-                "============================================================\n"
-                "Este app é apenas uma brincadeira.\n"
-                "Qualquer semelhança com a realidade é mera coincidência.\n"
-                "Autor: RCDM\n"
-                "============================================================\n"
+                "\n[color=#FFFFFF]============================================================[/color]\n"
+                "[color=#FFFFFF]Resultado da Eleição[/color]\n"
+                "[color=#FFFFFF]============================================================[/color]\n"
+                f"[color=#FFFFFF]LADRÃO: [/color][color=#FF0000]{self.ladrao}[/color][color=#FFFFFF] voto(s)![/color]\n"
+                f"[color=#FFFFFF]POLÍCIA: [/color][color=#00FF00]{self.policia}[/color][color=#FFFFFF] voto(s)![/color]\n"
+                f"[color=#FFFFFF]ISENTÃO: [/color][color=#FF69B4]{self.isentao}[/color][color=#FFFFFF] voto(s)![/color]\n"
+                f"[color=#FFFFFF]NULOS: [/color][color=#FFFF00]{self.nulos}[/color][color=#FFFFFF] voto(s)![/color]\n"
+                "[color=#FFFFFF]============================================================[/color]\n"
+                f"[color=#FFFFFF]TOTALIZAÇÃO: {self.total} voto(s)![/color]\n"
+                "[color=#FFFFFF]============================================================[/color]\n"
+                "[color=#FFFFFF]Obrigado por acreditar CEGAMENTE em nossa Ju$tiça Eleitoral![/color]\n"
+                "[color=#FFFFFF]============================================================[/color]\n"
+                "[color=#FFFFFF]Este app é apenas uma brincadeira.[/color]\n"
+                "[color=#FFFFFF]Qualquer semelhança com a realidade é mera coincidência.[/color]\n"
+                "[color=#FFFFFF]Autor: RCDM[/color]\n"
+                "[color=#FFFFFF]============================================================[/color]\n"
             )
         else:
             self.nulos += 1
