@@ -17,8 +17,10 @@ class NosferatuApp(App):
         layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
         
         self.output = Label(
-            text="Zerésima da Eleição 100% confiável do NOSFERATU: 0 voto(s)\n\n"
-                 "Digite:\n13 - LADRÃO\n22 - POLÍCIA\n24 - ISENTÃO\n99 - APURAR",
+            text="\n============================================================\n"
+            "Zerésima da Eleição 100% confiável do NOSFERATU: 0 voto(s)\n\n"
+            "Digite:\n13 - LADRÃO\n22 - POLÍCIA\n24 - ISENTÃO\n99 - APURAR"
+            "\n============================================================\n",
             size_hint_y=None, markup=True
         )
         self.output.bind(texture_size=lambda instance, value: setattr(instance, 'height', value[1]))
@@ -60,15 +62,17 @@ class NosferatuApp(App):
                 self.ladrao += 1
         elif voto == "99":
             log = (
-                "\n################################\n"
+                "\n============================================================\n"
                 "Resultado da Eleição!\n\n"
                 f"LADRÃO: {self.ladrao} voto(s)!\n"
                 f"POLÍCIA: {self.policia} voto(s)!\n"
                 f"ISENTÃO: {self.isentao} voto(s)!\n"
                 f"NULOS: {self.nulos} voto(s)!\n"
                 f"TOTALIZAÇÃO: {self.total} voto(s)!\n\n"
-                "Obrigado por acreditar CEGAMENTE em nossa Ju$tiça Eleitoral!\n"
-                "################################\n"
+                "Obrigado por acreditar CEGAMENTE em nossa Ju$tiça Eleitoral!\n\n"
+                "Este app é uma brincadeira, qualquer semelhança com a realidade\n"
+                "é mera coincidência. Autor: RCDM\n\n"
+                "============================================================\n"
             )
         else:
             self.nulos += 1
