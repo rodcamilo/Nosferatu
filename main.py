@@ -5,7 +5,7 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 from kivy.uix.scrollview import ScrollView
 
-class NosferatuApp(App):
+class Nosferatu(App):
     def build(self):
         self.ladrao = 0
         self.policia = 0
@@ -34,7 +34,16 @@ class NosferatuApp(App):
         scroll.add_widget(self.output)
         layout.add_widget(scroll)
 
-        self.input_voto = TextInput(hint_text="Digite seu voto", multiline=False, input_filter='int', size_hint_y=None, height=100)
+        # Configurado para capturar o Enter
+        self.input_voto = TextInput(
+            hint_text="Digite seu voto", 
+            multiline=False, 
+            input_filter='int', 
+            size_hint_y=None, 
+            height=100
+        )
+        # Dispara a função processar_voto ao apertar Enter/Concluir no teclado
+        self.input_voto.bind(on_text_validate=self.processar_voto)
         layout.add_widget(self.input_voto)
 
         btn = Button(text="Votar / Confirmar", size_hint_y=None, height=100)
@@ -46,8 +55,11 @@ class NosferatuApp(App):
     def processar_voto(self, instance):
         voto = self.input_voto.text.strip()
         self.input_voto.text = ""
+        
+        # Mantém o foco na caixa de texto para o teclado não fechar
+        self.input_voto.focus = True
+        
         log = ""
-
         sep = "[color=#FFFFFF]============================================================[/color]"
 
         if voto == "13":
@@ -94,4 +106,4 @@ class NosferatuApp(App):
         self.output.text += f"\n\n{log}"
 
 if __name__ == "__main__":
-    NosferatuApp().run()
+    Nosferatu().run()
