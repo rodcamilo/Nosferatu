@@ -13,8 +13,8 @@ jobs:
       - name: Checkout do codigo
         uses: actions/checkout@v4
 
-      - name: Compilar APK com Buildozer Action
-        uses: ArtemSzymanskii/buildozer-action@v1
+      - name: Compilar APK com Kivy Buildozer Action
+        uses: kivy/buildozer-action@v1
         with:
           command: buildozer android debug
           buildozer_version: master
