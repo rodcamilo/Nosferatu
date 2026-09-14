@@ -18,7 +18,8 @@ class NosferatuApp(App):
         
         self.output = Label(
             text="\n============================================================\n"
-            "Zerésima da Eleição 100% confiável do NOSFERATU: 0 voto(s)\n\n"
+            "Zerésima da Eleição 100% confiável do NOSFERATU: 0 voto(s)\n"
+            "============================================================\n"
             "Digite:\n13 - LADRÃO\n22 - POLÍCIA\n24 - ISENTÃO\n99 - APURAR"
             "\n============================================================\n",
             size_hint_y=None, markup=True
@@ -43,18 +44,20 @@ class NosferatuApp(App):
         self.input_voto.text = ""
         log = ""
 
+        sep = "============================================================"
+
         if voto == "13":
             self.ladrao += 1
             self.total += 1
-            log = "Você votou no 13 LADRÃO!"
+            log = f"{sep}\n[color=#FF0000]Você votou no 13 LADRÃO![/color]\n{sep}"
         elif voto == "24":
             self.isentao += 1
             self.total += 1
-            log = "Você votou no 24 ISENTÃO!"
+            log = f"{sep}\n[color=#FF69B4]Você votou no 24 ISENTÃO![/color]\n{sep}"
         elif voto == "22":
             self.nosf += 1
             self.total += 1
-            log = "Você votou no 22 POLÍCIA!"
+            log = f"{sep}\n[color=#00FF00]Você votou no 22 POLÍCIA![/color]\n{sep}"
             if self.nosf < 2:
                 self.policia += 1
             else:
@@ -63,21 +66,26 @@ class NosferatuApp(App):
         elif voto == "99":
             log = (
                 "\n============================================================\n"
-                "Resultado da Eleição!\n\n"
-                f"LADRÃO: {self.ladrao} voto(s)!\n"
-                f"POLÍCIA: {self.policia} voto(s)!\n"
-                f"ISENTÃO: {self.isentao} voto(s)!\n"
-                f"NULOS: {self.nulos} voto(s)!\n"
-                f"TOTALIZAÇÃO: {self.total} voto(s)!\n\n"
-                "Obrigado por acreditar CEGAMENTE em nossa Ju$tiça Eleitoral!\n\n"
-                "Este app é uma brincadeira, qualquer semelhança com a realidade\n"
-                "é mera coincidência. Autor: RCDM\n\n"
+                "[color=#00FF00]Resultado da Eleição[/color]\n"
+                "============================================================\n"
+                f"LADRÃO: [color=#FF0000]{self.ladrao}[/color] voto(s)!\n"
+                f"POLÍCIA: [color=#00FF00]{self.policia}[/color] voto(s)!\n"
+                f"ISENTÃO: [color=#FF69B4]{self.isentao}[/color] voto(s)!\n"
+                f"NULOS: [color=#FFFF00]{self.nulos}[/color] voto(s)!\n"
+                "============================================================\n"
+                f"TOTALIZAÇÃO: {self.total} voto(s)!\n"
+                "============================================================\n"
+                "[color=#00FF00]Obrigado por acreditar CEGAMENTE em nossa Ju$tiça Eleitoral![/color]\n"
+                "============================================================\n"
+                "Este app é apenas uma brincadeira.\n"
+                "Qualquer semelhança com a realidade é mera coincidência.\n"
+                "Autor: RCDM\n"
                 "============================================================\n"
             )
         else:
             self.nulos += 1
             self.total += 1
-            log = "Você ANULOU seu voto!"
+            log = f"{sep}\n[color=#FFFF00]Você ANULOU seu voto![/color]\n{sep}"
 
         self.output.text += f"\n\n{log}"
 
