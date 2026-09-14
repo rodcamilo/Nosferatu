@@ -1,6 +1,6 @@
 [app]
-title = NosferatuApp
-package.name = nosferatuapp
+title = Nosferatu
+package.name = nosferatu
 package.domain = org.nosferatu
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
@@ -8,6 +8,9 @@ version = 0.1
 requirements = python3,kivy
 orientation = portrait
 fullscreen = 0
+
+# Icone do aplicativo (aponta para o arquivo icon.png na raiz)
+icon.filename = %(source.dir)s/icon.png
 
 # Fixando versoes estaveis do Android SDK/Build-Tools
 android.api = 33
