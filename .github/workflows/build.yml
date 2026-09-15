@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Checkout do codigo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Configurar Java JDK 17
         uses: actions/setup-java@v5
@@ -18,7 +18,7 @@ jobs:
           java-version: '17'
 
       - name: Configurar Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.11'
 
@@ -35,7 +35,7 @@ jobs:
           yes | buildozer android debug
 
       - name: Salvar APK como Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
-          name: NosferatuApp-APK
+          name: NosferatuAPK
           path: bin/*.apk
