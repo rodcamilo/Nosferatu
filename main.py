@@ -5,7 +5,7 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 from kivy.uix.scrollview import ScrollView
 
-class NosferatuApp(App):
+class Nosferatu(App):
     def build(self):
         self.ladrao = 0
         self.policia = 0
@@ -90,10 +90,10 @@ class NosferatuApp(App):
                 f"\n{sep}\n"
                 "[color=#FFFFFF]Resultado da Eleição[/color]\n"
                 f"{sep}\n"
-                f"[color=#FFFFFF]LADRÃO: [/color][color=#FF0000]{self.ladrao}[/color][color=#FFFFFF] voto(s)![/color]\n"
-                f"[color=#FFFFFF]POLÍCIA: [/color][color=#00FF00]{self.policia}[/color][color=#FFFFFF] voto(s)![/color]\n"
-                f"[color=#FFFFFF]ISENTÃO: [/color][color=#FF69B4]{self.isentao}[/color][color=#FFFFFF] voto(s)![/color]\n"
-                f"[color=#FFFFFF]NULOS: [/color][color=#FFFF00]{self.nulos}[/color][color=#FFFFFF] voto(s)![/color]\n"
+                f"[color=#FFFFFF]LADRÃO: {self.ladrao}[color=#FFFFFF] voto(s)![/color]\n"
+                f"[color=#FFFFFF]POLÍCIA: {self.policia}[color=#FFFFFF] voto(s)![/color]\n"
+                f"[color=#FFFFFF]ISENTÃO: {self.isentao}[color=#FFFFFF] voto(s)![/color]\n"
+                f"[color=#FFFFFF]NULOS: {self.nulos}[color=#FFFFFF] voto(s)![/color]\n"
                 f"{sep}\n"
                 f"[color=#FFFFFF]TOTALIZAÇÃO: {self.total} voto(s)![/color]\n"
                 f"{sep}\n"
@@ -107,9 +107,9 @@ class NosferatuApp(App):
         else:
             self.nulos += 1
             self.total += 1
-            log = f"{sep}\n[color=#FFFF00]Você ANULOU seu voto![/color]\n{sep}"
+            log = f"{sep}\n[color=#FFFFFF]Você ANULOU seu voto![/color]\n{sep}"
 
         self.output.text += f"\n\n{log}"
 
 if __name__ == "__main__":
-    NosferatuApp().run()
+    Nosferatu().run()
