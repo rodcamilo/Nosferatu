@@ -21,7 +21,7 @@ class NosferatuApp(App):
 
         self.output = Label(
             text=f"\n[color=#FFFFFF]{sep_init}[/color]\n"
-            "[color=#FFFFFF]Zerésima da Eleição 100% confiável do NOSFERATU: 0 voto(s)[/color]\n"
+            "[color=#FFFFFF]Bem-vindo à Eleição 100% confiável do Nosferatu![/color]\n"
             f"[color=#FFFFFF]{sep_init}[/color]\n"
             "[color=#FFFFFF]Digite:[/color]\n"
             "[color=#FF0000]13 - LADRÃO[/color]\n"
@@ -97,10 +97,10 @@ class NosferatuApp(App):
                 f"{sep}\n"
                 f"[color=#FFFFFF]TOTALIZAÇÃO: {self.total} voto(s)![/color]\n"
                 f"{sep}\n"
-                "[color=#FFFFFF]Obrigado por acreditar CEGAMENTE em nossa Ju$tiça Eleitoral![/color]\n"
+                "[color=#FFFFFF]Obrigado por acreditar em nossa Ju$tiça Eleitoral![/color]\n"
                 f"{sep}\n"
                 "[color=#FFFFFF]Este app é apenas uma brincadeira.[/color]\n"
-                "[color=#FFFFFF]Qualquer semelhança com a realidade é mera coincidência.[/color]\n"
+                "[color=#FFFFFF]Qquer semelhança à realidade é só coincidência.[/color]\n"
                 "[color=#FFFFFF]Autor: RCDM[/color]\n"
                 f"{sep}\n"
             )
