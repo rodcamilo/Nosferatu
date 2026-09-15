@@ -5,7 +5,9 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
+    env:
+      ACTIONS_RUNNER_FORCE_ACTIONS_NODE20: "true"
 
     steps:
       - name: Checkout do codigo
