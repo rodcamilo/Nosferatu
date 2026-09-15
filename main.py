@@ -24,9 +24,9 @@ class Nosferatu(App):
             "[color=#FFFFFF]Bem-vindo à Eleição 100% confiável do Nosferatu![/color]\n"
             f"[color=#FFFFFF]{sep_init}[/color]\n"
             "[color=#FFFFFF]Digite:[/color]\n"
-            "[color=#FF0000]13 - LADRÃO[/color]\n"
-            "[color=#00FF00]22 - POLÍCIA[/color]\n"
-            "[color=#FF69B4]24 - ISENTÃO[/color]\n"
+            "[color=#FFFFFF]13 - LADRÃO[/color]\n"
+            "[color=#FFFFFF]22 - POLÍCIA[/color]\n"
+            "[color=#FFFFFF]24 - ISENTÃO[/color]\n"
             "[color=#FFFFFF]99 - APURAR[/color]"
             f"\n[color=#FFFFFF]{sep_init}[/color]\n",
             size_hint_y=None, 
@@ -75,11 +75,11 @@ class Nosferatu(App):
         elif voto == "24":
             self.isentao += 1
             self.total += 1
-            log = f"{sep}\n[color=#FF69B4]Você votou no 24 ISENTÃO![/color]\n{sep}"
+            log = f"{sep}\n[color=#FF00FF]Você votou no 24 ISENTÃO![/color]\n{sep}"
         elif voto == "22":
             self.nosf += 1
             self.total += 1
-            log = f"{sep}\n[color=#00FF00]Você votou no 22 POLÍCIA![/color]\n{sep}"
+            log = f"{sep}\n[color=#FFFF00]Você votou no 22 POLÍCIA![/color]\n{sep}"
             if self.nosf < 2:
                 self.policia += 1
             else:
@@ -97,10 +97,11 @@ class Nosferatu(App):
                 f"{sep}\n"
                 f"[color=#FFFFFF]TOTALIZAÇÃO: {self.total} voto(s)![/color]\n"
                 f"{sep}\n"
-                "[color=#FFFFFF]Obrigado por acreditar em nossa Ju$tiça Eleitoral![/color]\n"
+                "[color=#FFFFFF]Obrigado por crer em nossa Ju$tiça Eleitoral![/color]\n"
                 f"{sep}\n"
                 "[color=#FFFFFF]Este app é apenas uma brincadeira.[/color]\n"
-                "[color=#FFFFFF]Qquer semelhança à realidade é só coincidência.[/color]\n"
+                "[color=#FFFFFF]Qualquer semelhança com a realidade...[/color]\n"
+                "[color=#FFFFFF]...é mera coincidência.[/color]\n"
                 "[color=#FFFFFF]Autor: RCDM[/color]\n"
                 f"{sep}\n"
             )
