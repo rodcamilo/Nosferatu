@@ -1,26 +1,27 @@
-name: Compilar APK Android
+name: Compilar APK e Windows EXE
 
 on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-android:
+    name: Compilar APK Android
     runs-on: ubuntu-22.04
     env:
       ACTIONS_RUNNER_FORCE_ACTIONS_NODE20: "true"
 
     steps:
       - name: Checkout do codigo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Configurar Java JDK 17
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
 
       - name: Configurar Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
@@ -33,11 +34,39 @@ jobs:
 
       - name: Compilar APK com Buildozer
         run: |
-          # Aceita automaticamente licenças do Android SDK durante a compilação
           yes | buildozer android debug
 
       - name: Salvar APK como Artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v4
         with:
           name: NosferatuAPK
           path: bin/*.apk
+
+  build-windows:
+    name: Compilar Executavel Windows
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout do codigo
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar Dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyinstaller kivy[base]
+          if (Test-Path requirements.txt) { pip install -r requirements.txt }
+
+      - name: Gerar Executavel com PyInstaller
+        run: |
+          pyinstaller --noconfirm --onedir --windowed main.py
+
+      - name: Salvar Executavel como Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: NosferatuWindows
+          path: dist/main
