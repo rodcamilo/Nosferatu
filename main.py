@@ -97,7 +97,7 @@ class Nosferatu(App):
                 f"{sep}\n"
                 f"[color=#FFFFFF]TOTALIZAÇÃO: {self.total}  VOTO(S)[/color]\n"
                 f"{sep}\n"
-                "[color=#FFFFFF]Este app é apenas uma sátira:[/color]\n"
+                "[color=#FFFFFF]Este app é apenas uma sátira.[/color]\n"
                 "[color=#FFFFFF]Qualquer semelhança com a realidade[/color]\n"
                 "[color=#FFFFFF]é mera coincidência.[/color]\n"
                 f"{sep}\n"
