@@ -21,9 +21,9 @@ class Nosferatu(App):
 
         self.output = Label(
             text=f"\n[color=#FFFFFF]{sep_init}[/color]\n"
-            "[color=#FFFFFF]Eleição 100% confiável do Nosferatu![/color]\n"
+            "[color=#FFFFFF]ELEIÇÃO 100% CONFIÁVEL DO NOSFERATU[/color]\n"
             f"[color=#FFFFFF]{sep_init}[/color]\n"
-            "[color=#FFFFFF]Digite:[/color]\n"
+            "[color=#FFFFFF]DIGITE:[/color]\n"
             "[color=#FFFFFF]13 - LADRÃO[/color]\n"
             "[color=#FFFFFF]22 - POLÍCIA[/color]\n"
             "[color=#FFFFFF]24 - ISENTÃO[/color]\n"
@@ -71,15 +71,15 @@ class Nosferatu(App):
         if voto == "13":
             self.ladrao += 1
             self.total += 1
-            log = f"{sep}\n[color=#FF0000]Você votou no 13 LADRÃO![/color]\n{sep}"
+            log = f"{sep}\n[color=#FF0000]VOCÊ VOTOU 13 LADRÃO![/color]\n{sep}"
         elif voto == "24":
             self.isentao += 1
             self.total += 1
-            log = f"{sep}\n[color=#FF00FF]Você votou no 24 ISENTÃO![/color]\n{sep}"
+            log = f"{sep}\n[color=#FF00FF]VOCÊ VOTOU 24 ISENTÃO![/color]\n{sep}"
         elif voto == "22":
             self.nosf += 1
             self.total += 1
-            log = f"{sep}\n[color=#FFFF00]Você votou no 22 POLÍCIA![/color]\n{sep}"
+            log = f"{sep}\n[color=#FFFF00]VOCÊ VOTOU 22 POLÍCIA![/color]\n{sep}"
             if self.nosf < 2:
                 self.policia += 1
             else:
@@ -88,26 +88,24 @@ class Nosferatu(App):
         elif voto == "99":
             log = (
                 f"\n{sep}\n"
-                "[color=#FFFFFF]Resultado da Eleição[/color]\n"
+                "[color=#FFFFFF]APURAÇÃO DOS VOTOS[/color]\n"
                 f"{sep}\n"
-                f"[color=#FFFFFF]LADRÃO: {self.ladrao}[color=#FFFFFF] voto(s)![/color]\n"
-                f"[color=#FFFFFF]POLÍCIA: {self.policia}[color=#FFFFFF] voto(s)![/color]\n"
-                f"[color=#FFFFFF]ISENTÃO: {self.isentao}[color=#FFFFFF] voto(s)![/color]\n"
-                f"[color=#FFFFFF]NULOS: {self.nulos}[color=#FFFFFF] voto(s)![/color]\n"
+                f"[color=#FFFFFF]LADRÃO: {self.ladrao}[color=#FFFFFF] VOTO(S)[/color]\n"
+                f"[color=#FFFFFF]POLÍCIA: {self.policia}[color=#FFFFFF] VOTO(S)[/color]\n"
+                f"[color=#FFFFFF]ISENTÃO: {self.isentao}[color=#FFFFFF] VOTO(S)[/color]\n"
+                f"[color=#FFFFFF]NULOS: {self.nulos}[color=#FFFFFF] VOTO(S)[/color]\n"
                 f"{sep}\n"
-                f"[color=#FFFFFF]TOTALIZAÇÃO: {self.total} voto(s)![/color]\n"
+                f"[color=#FFFFFF]TOTALIZAÇÃO: {self.total}  VOTO(S)[/color]\n"
                 f"{sep}\n"
-                "[color=#FFFFFF]Obrigado por crer em nossa Ju$tiça Eleitoral![/color]\n"
-                f"{sep}\n"
-                "[color=#FFFFFF]Este app é apenas uma sátira.[/color]\n"
-                "[color=#FFFFFF]Qualquer semelhança com a realidade...[/color]\n"
-                "[color=#FFFFFF]...é mera coincidência.[/color]\n"
+                "[color=#FFFFFF]Este app é apenas uma sátira:[/color]\n"
+                "[color=#FFFFFF]Qualquer semelhança com a realidade[/color]\n"
+                "[color=#FFFFFF]é mera coincidência.[/color]\n"
                 f"{sep}\n"
             )
         else:
             self.nulos += 1
             self.total += 1
-            log = f"{sep}\n[color=#FFFFFF]Você ANULOU seu voto![/color]\n{sep}"
+            log = f"{sep}\n[color=#FFFFFF]VOCÊ ANULOU SEU VOTO![/color]\n{sep}"
 
         self.output.text += f"\n\n{log}"
 
