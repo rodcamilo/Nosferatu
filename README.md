@@ -1,3 +1,11 @@
-<p align="center">Nosferatu é um app de zoeira, pra simular fraude eleitoral. Qualquer semelhança com a realidade, é mera coincidência, ok?</p>
-<p align="center"><img src="ic_launcher.png" alt="Nosferatu Logo" width="200" /></p>
-<p align="center">Neste script, a cada 2 votos na POLÍCIA, apesar da mensagem em tela confirmar a escolha, 1 voto é contabilizado para o LADRÃO.</p>
+<p align="center">
+  <img src="ic_launcher.png" width="128" alt="Ícone Nosferatu">
+</p>
+
+Nosferatu é um app de zoeira, pra simular fraude eleitoral. Qualquer semelhança com a realidade, é mera coincidência, ok?
+
+Neste script, a cada 2 votos na POLÍCIA, apesar da mensagem em tela confirmar a escolha, 1 voto é contabilizado para o LADRÃO.
+
+<p align="center">
+  <img src="Screenshot.jpg" width="300" alt="Screenshot do aplicativo">
+</p>
