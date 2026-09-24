@@ -52,7 +52,7 @@ class Nosferatu(App):
         self.input_voto.bind(on_text_validate=self.processar_voto)
         layout.add_widget(self.input_voto)
 
-        btn = Button(text="Votar / Confirmar", size_hint_y=None, height=100)
+        btn = Button(text="VOTAR", size_hint_y=None, height=100)
         btn.bind(on_press=self.processar_voto)
         layout.add_widget(btn)
 
