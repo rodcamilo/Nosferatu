@@ -13,7 +13,7 @@ fullscreen = 0
 icon.filename = %(source.dir)s/ic_launcher.png
 
 # Ícone adaptativo (Android 8.0+)
-icon.adaptive_foreground.filename = %(source.dir)s/ic_launcher_foreground.png
+icon.adaptive_foreground.filename = %(source.dir)s/ic_launcher.png
 icon.adaptive_background.color = #000000
 
 # Fixando versoes estaveis do Android SDK/Build-Tools
