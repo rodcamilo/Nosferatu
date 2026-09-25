@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="ic_launcher.png" width="128" alt="Ícone Nosferatu">
+<img src="icon.png" width="128" alt="Ícone Nosferatu">
 
 Nosferatu é um app de zoeira, pra simular fraude eleitoral. Qualquer semelhança com a realidade, é mera coincidência, ok?
 
