@@ -8,6 +8,6 @@ Neste script, a cada 2 votos na POLÍCIA, apesar da mensagem em tela confirmar a
 
 Os demais votos são computados e apurados normalmente na totalização de votos do script.
 
-<img src="screenshot.jpg" width="300" alt="Screenshot do app">
+<img src="screenshot.png" width="300" alt="Screenshot do app">
 
 </div>
