@@ -66,20 +66,23 @@ class Nosferatu(App):
         self.input_voto.focus = True
         
         log = ""
+        # Separador exclusivo para as mensagens de voto (com '+')
+        sep_voto = "[color=#FFFFFF]+++++++++++++++++++++++++++++++++++++++++++++[/color]"
+        # Separador para a apuração e início (com '=')
         sep = "[color=#FFFFFF]=============================================[/color]"
 
         if voto == "13":
             self.ladrao += 1
             self.total += 1
-            log = f"{sep}\n[color=#FF0000]VOCÊ VOTOU 13 LADRÃO![/color]\n{sep}"
+            log = f"{sep_voto}\n[color=#FF0000]VOCÊ VOTOU 13 LADRÃO![/color]\n{sep_voto}"
         elif voto == "24":
             self.isentao += 1
             self.total += 1
-            log = f"{sep}\n[color=#FF00FF]VOCÊ VOTOU 24 ISENTÃO![/color]\n{sep}"
+            log = f"{sep_voto}\n[color=#FF00FF]VOCÊ VOTOU 24 ISENTÃO![/color]\n{sep_voto}"
         elif voto == "22":
             self.nosf += 1
             self.total += 1
-            log = f"{sep}\n[color=#FFFF00]VOCÊ VOTOU 22 POLÍCIA![/color]\n{sep}"
+            log = f"{sep_voto}\n[color=#FFFF00]VOCÊ VOTOU 22 POLÍCIA![/color]\n{sep_voto}"
             if self.nosf < 2:
                 self.policia += 1
             else:
@@ -105,7 +108,7 @@ class Nosferatu(App):
         else:
             self.nulos += 1
             self.total += 1
-            log = f"{sep}\n[color=#FFFFFF]VOCÊ ANULOU SEU VOTO![/color]\n{sep}"
+            log = f"{sep_voto}\n[color=#FFFFFF]VOCÊ ANULOU SEU VOTO![/color]\n{sep_voto}"
 
         self.output.text += f"\n\n{log}"
 
