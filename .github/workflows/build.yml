@@ -1,11 +1,11 @@
-name: Compilar APK e Windows EXE
+name: Compilar Android e Windows
 
 on:
   workflow_dispatch:
 
 jobs:
   build-android:
-    name: Compilar APK Android
+    name: Compilar Android
     runs-on: ubuntu-22.04
     env:
       ACTIONS_RUNNER_FORCE_ACTIONS_NODE20: "true"
@@ -39,11 +39,11 @@ jobs:
       - name: Salvar APK como Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: NosferatuAPK
+          name: android
           path: bin/*.apk
 
   build-windows:
-    name: Compilar Executavel Windows
+    name: Compilar Windows
     runs-on: windows-latest
 
     steps:
@@ -61,7 +61,7 @@ jobs:
           pip install pyinstaller kivy[base] kivy_deps.angle
           if (Test-Path requirements.txt) { pip install -r requirements.txt }
 
-      - name: Gerar Executavel Unico (Onefile)
+      - name: Gerar Executavel Onefile
         env:
           KIVY_GL_BACKEND: angle_sdl2
           KIVE_NO_CONSOLE: "1"
@@ -69,16 +69,16 @@ jobs:
           KIVY_HEADLESS: "1"
           KIVY_WINDOW: mock
         run: |
-          pyinstaller --noconfirm --onefile --windowed --name "Nosferatu" main.py
+          pyinstaller --noconfirm --onefile --windowed --name "windows" main.py
 
       - name: Criar e Assinar Executavel
         shell: powershell
         run: |
-          $cert = New-SelfSignedCertificate -CertStoreLocation cert:\CurrentUser\My -Subject "CN=NosferatuApp" -Type CodeSigningCert
-          Set-AuthenticodeSignature -FilePath "dist/Nosferatu.exe" -Certificate $cert
+          $cert = New-SelfSignedCertificate -CertStoreLocation cert:\CurrentUser\My -Subject "CN=windows" -Type CodeSigningCert
+          Set-AuthenticodeSignature -FilePath "dist/windows.exe" -Certificate $cert
 
       - name: Salvar Executavel como Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: NosferatuWindowsEXE
-          path: dist/Nosferatu.exe
+          name: windows
+          path: dist/windows.exe
