@@ -1,7 +1,7 @@
 [app]
 title = Nosferatu
 package.name = nosferatu
-package.domain = org.nosferatu
+package.domain = org.rodcamilo
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
 version = 0.1
